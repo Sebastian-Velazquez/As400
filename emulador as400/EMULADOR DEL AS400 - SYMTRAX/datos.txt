@@ -1,0 +1,5 @@
+nombre: as400
+ip: PUB400.COM
+usuario: SEBA1993
+password: boca1993
+Nombre de la libreria: SEBA19931
