@@ -44,7 +44,7 @@ Shift + F12 = F24
 Cuando te dice More.. usar estos comando para avanzar.
     Ctrl + Re AV. para ver mas detalle
     Ctrl + Re Pag. para volver
-
+---------------------------------------------------------------------------
 Acceso a librerías y archivos
 comando:  STRPDM
 1.Trabajar con librerías
@@ -215,7 +215,64 @@ Member . . . . . . . . . . . .                *FIRST
 Report output type . . . . . . . OUTTYPE        *RUNOP
 Output form  . . . . . . . . . . OUTFORM        *RUNOP
 Record selection . . . . . . . . RCDSLT         *NO
-
+--------------------------------------------------------------------------------------
+Consultas de archivo físico
+    1) Una ves que estemos en el archivo fisico compilado, sugiere usar EDTLIB
+Number   Library           Number   Library
+    0                        150
+    10    SEBA19931           160
+    20    QGPL                170
+    30    QTEMP               180
+    40    GAMES400            190
+        Como se, se agrego la librería
+    2) Hacer uso de archivo, Consular de forma mas directa
+    RUNQRY *N ARCO2 + F4 + ENTER
+    3)Ingresar manuelmante registros
+        STRDFU + F4
+Option:                          OPTION
+DFU option . . . . . . . . . .                5
+Run option . . . . . . . . . .                *NONE
+DFU program  . . . . . . . . . . DFUPGM         *PRV
+Library  . . . . . . . . . . .                  *PRV
+Data base file . . . . . . . . . FILE           *PRV
+Library  . . . . . . . . . . .                  *PRV
+Member . . . . . . . . . . . . . MBR            *PRV
+    4)Enter y luego lo siguiente:
+Data file . . . . . . . . .   ARC02         Name, F4 for list
+Library . . . . . . . . .     SEBA19931   Name, *LIBL, *CURLIB
+Member  . . . . . . . . . .                 Name, *FIRST, F4 for list
+    5) Le damos enter y estamos listo para ingresar datos WORK WITH DATA IN A FILE                       Mode . . . . :   ENTRY
+ Format . . . . :   ARC02R                      File . . . . :   ARC02
+ ARC2NID:
+ AC2NOM:
+ AC2APE:
+ AC2CIU:
+ AC2EDA:
+    6) Ahora apretamos F9 para que nos habilite la opción de instertar registro
+    7) Ahora entramos el  RUNQRY *N ARCO2 + F4 + ENTER y podemos ver los datos que ingresamos, para ver todos los campos porque
+        al princiopio ves dos depediendo de la pantalla. podemos navegar para la derecha o izquierda con Shift+F8 y Shift+F9
+MINUTO 11:04
+    8) Realizar filtros oo Consultas: RUNQRY *N ARCO2 + F4 + ENTER
+Query  . . . . . . . . . . . . . QRY
+Library  . . . . . . . . . . .                  *LIBL
+Query file:                      QRYFILE
+File . . . . . . . . . . . . .              > ARC02
+Library  . . . . . . . . . .                  *LIBL
+Member . . . . . . . . . . . .                *FIRST
+                        + for more values
+Report output type . . . . . . . OUTTYPE        *RUNOPT
+Output form  . . . . . . . . . . OUTFORM        *RUNOPT
+Record selection . . . . . . . . RCDSLT         *YES //esta por defecto en NO
+    Llanamos los datos:
+Type comparisons, press Enter.  Specify OR to start each new group.
+Tests:  EQ, NE, LE, GE, LT, GT, RANGE, LIST, LIKE, IS, ISNOT...
+AND/OR  Field             Test   Value (Field, Number, 'Characters', or ...)
+        AC2EDA            EQ     30
+    9) Consulta con STRSQL:
+        SELECT * FROM ARC02
+        Como en sql hacer todos las consultas que quieran. el direfencial es <>
+------------------------------------------------------------------------------
+    PARA RECUPERAR EL COMANDO F9
 
 
 
