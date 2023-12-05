@@ -269,11 +269,82 @@ Tests:  EQ, NE, LE, GE, LT, GT, RANGE, LIST, LIKE, IS, ISNOT...
 AND/OR  Field             Test   Value (Field, Number, 'Characters', or ...)
         AC2EDA            EQ     30
     9) Consulta con STRSQL:
+    Ingresamos STRTSQL y le damos enter. Ahora si podemos usar los comando que conocemos para hacer consultas sql
         SELECT * FROM ARC02
         Como en sql hacer todos las consultas que quieran. el direfencial es <>
-------------------------------------------------------------------------------
     PARA RECUPERAR EL COMANDO F9
+------------------------------------------------------------------------------
+Comandos Básicos Para Manejo de Archivos Físicos. https://www.youtube.com/watch?v=unroHmTnUTI&t=66s
+    CRTDUPOBJ : Para duplicar un objeto
+ Type choices, press Enter.
+ From object  . . . . . . . . . . OBJ          > ARC02 //NOMBRE DE ARCHIVO QUE QUIERO DUPLICAR
+ From library . . . . . . . . . . FROMLIB      > SEBA19931 //NOMBRE DE LA LIBRERIA DONDES ESTA ALOJADO EL ARCHIVO
+ Object type  . . . . . . . . . . OBJTYPE      > *FILE  //EL TIPO DE FORMATO QUE TIENE EL ARCHIVO A DUPLICAR
+                           + for more values
+ To library . . . . . . . . . . . TOLIB        > SEBA19932 //EN QUE LIBRERIA LO GUARDE
+ New object . . . . . . . . . . . NEWOBJ       > ARC04 //NOMBRE DEL ARCHIVO NUEVO
+ From ASP device  . . . . . . . . ASPDEV         *
+ To ASP device  . . . . . . . . . TOASPDEV       *ASPDEV
+ Duplicate data . . . . . . . . . DATA           *YES //PONER YES PARA QUE QUE SE DUPLIQUE L A IONFORACIONN QUE LO CONTIENE
+ Duplicate constraints  . . . . . CST            *YES
+ Duplicate triggers . . . . . . . TRG            *YES
+ Duplicate file identifiers . . . FILEID         *NO
+ Duplicate access control . . . . ACCCTL         *ALL
 
+    DSPFD: Para sacar informacion tecnica del archivo
+Type choices, press Enter.
+File . . . . . . . . . . . . . . FILE           ARC04
+  Library  . . . . . . . . . . .                  SEBA19932
+Type of information  . . . . . . TYPE           *ALL
+                          + for more values
+Output . . . . . . . . . . . . . OUTPUT         *
+File attributes  . . . . . . . . FILEATR        *ALL
+                          + for more values
+
+    DSPFFD: Para sacar las características de cada campo
+    DSPOBJD:
+Object . . . . . . . . . . . . . OBJ          > ARC04
+Library  . . . . . . . . . . .              >   SEBA19932
+Object type  . . . . . . . . . . OBJTYPE      > *FILE
+                    + for more values
+Detail . . . . . . . . . . . . . DETAIL         *BASIC
+ASP device:                      ASPDEV
+Device . . . . . . . . . . . .                *
+Search type  . . . . . . . . .
+Output . . . . . . . . . . . . . OUTPUT         *
+    Elegimos estas opciones:
+        Type options, press Enter.
+        5=Display full attributes   8=Display service attributes
+        En la opcopon 8 te da la informacion de la ruta del archivo
+            Source file  . . . . . . . . . . . . :   MODPRUEBA
+            Library  . . . . . . . . . . . . . :     SEBA19931
+            Member . . . . . . . . . . . . . . . :   ARC02
+            Attribute  . . . . . . . . . . . . . :   PF
+    CLRPFM: Limpiar la informacion que tiene el archivo. CUIDADO!!}
+    CPYF: Copiar informacion de un archivo a otro.
+        Apretamos F10 para Desplegar mas informacion
+                Type choices, press Enter.
+                From file  . . . . . . . . . . . FROMFILE     > ARC02
+                Library  . . . . . . . . . . .              >   SEBA19931
+                To file  . . . . . . . . . . . . TOFILE       > ARC04
+                Library  . . . . . . . . . . .              >   SEBA19932
+                From member  . . . . . . . . . . FROMMBR        *FIRST
+                To member or label . . . . . . . TOMBR          *FIRST
+                Replace or add records . . . . . MBROPT       > *ADD //PARA QUE ME AGREGUE
+                Create file  . . . . . . . . . . CRTFILE        *NO
+                Print format . . . . . . . . . . OUTFMT         *CHAR
+    DLTF: Borrar el archivoo
+    WRKOBJ:  Es poara varios formatos de archivos.
+        WRKOBJ ARC04
+            Type options, press Enter.
+            2=Edit authority        3=Copy   4=Delete   5=Display authority   7=Rename
+            8=Display description   13=Change description
+    CHGPF: Realizar cambios a nivel de compilacion
+    DSPPFMREF: Buscar que progamas usan el archivo
+    ADDLFM: Agregar unm miembro logico a nuestro archivo. Son pequelñas vistas sobre mi archivo logico
+    RMVM: Remueve o limina ese archivo logico
+    Parte 6 finalizado 
+    -------------------------------------------------------------------------------
 
 
 
