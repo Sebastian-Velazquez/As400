@@ -345,6 +345,87 @@ Output . . . . . . . . . . . . . OUTPUT         *
     RMVM: Remueve o limina ese archivo logico
     Parte 6 finalizado 
     -------------------------------------------------------------------------------
+AS400 Creación Archivo Lógico - https://www.youtube.com/watch?v=Jwl6kJLiYA0
+    Los archivos logicos son vistas adiccionales como los view en SQL
+    STRSEU + F4
+ Type choices, press Enter.
+ Source file  . . . . . . . . . . SRCFILE        MODOPRUEBA //MODULO
+   Library  . . . . . . . . . . .                  SEBA19931
+ Source member  . . . . . . . . . SRCMBR
+ Source type  . . . . . . . . . . TYPE           LF
+ Option . . . . . . . . . . . . . OPTION         *BLANK
+ Text 'description' . . . . . . . TEXT           *BLANK
+
+    tE SALE: 
+Source file . . . . . .   MODPRUEBA               Library . . . . .  SEBA19931
+Position to . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+New member  . . . . . . . . . . . . . . . . . . . . . . . . . . . .  ARC02L1
+Type for new member . . . . . . . . . . . . . . . . . . . . . . .  LF
+Text  . . . . . . . . . Archivos logicos por Clientes
+
+    Llenamos y le damoos enter
+
+
+    Ahora creamos el nombre el cual usaremos para luego hacer el crud
+Name                                 Data      Decimal
+Type       Name         Length       Type     Positions     Use
+ R       ARC02
+Functions
+PFILE(ARC02)
+F3=Exit   F4=Prompt   F5=Refresh          F11=Previous record
+
+
+    Queda asi:
+ Columns . . . :    1  71            Edit                   SEBA19931/MODPRU
+ SEU==>                                                                 ARC0
+ FMT A* .....A*. 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+...
+        *************** Beginning of data **********************************
+0001.00      A*======================================================*
+0002.00      A* ARC02 - ARCHIVO LOGICO DE CLEINTES                   *
+0003.00      A*======================================================*
+0003.01      A          R ARC02                     PFILE(ARC02)
+0004.00      A
+0005.00      A
+0006.00      A
+0007.00      A
+0008.00      A
+0009.00      A
+0010.00      A
+0011.00      A
+0012.00      A
+0013.00      A
+0014.00      A
+        ****************** End of data *************************************
+    Una vez realizado lo tenemos que compilar con el 14
+
+---------------------------------------------------------------------------------------------------------------
+Errors in DDS not allowed with specified GENLVL.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
